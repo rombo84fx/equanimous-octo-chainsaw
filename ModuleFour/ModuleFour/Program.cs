@@ -1,56 +1,74 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModuleFour
 {
-    class Program
+    class ModuleFourAssignment
     {
         struct Student
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public DateTime BirthDate { get; set; }
+            public string FirstName;
+            public string LastName;
+            public DateTime BirthDate;
 
             public Student(string firstName, string lastName, DateTime birthDate)
             {
-                FirstName = firstName;
-                LastName = lastName;
-                BirthDate = birthDate;
+                this.FirstName = firstName;
+                this.LastName = lastName;
+                this.BirthDate = birthDate;
             }
         }
 
-        enum Week
+        struct Teacher
         {
-            Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+            public string FirstName;
+            public string LastName;
+            public DateTime BirthDate;
+            
+            public Teacher(string firstName, string lastName, DateTime birthDate)
+            {
+                this.FirstName = firstName;
+                this.LastName = lastName;
+                this.BirthDate = birthDate;
+            } 
         }
 
-        enum Month
+        struct Program
         {
-            January, February, March, April, May, June, July, August, September, October, November, December
+            public string ProgramName;
+            public string ProgramDescription;
+            public string ProgramSchool;
+
+            public Program(string name, string description, string school)
+            {
+                this.ProgramName = name;
+                this.ProgramDescription = description;
+                this.ProgramSchool = school;
+            }
+        }
+
+        struct Course
+        {
+            public string CourseName;
+            public string CourseDescription;
+            public string CourseInstructor;
+
+            public Course(string name, string description, string instructor)
+            {
+                this.CourseName = name;
+                this.CourseDescription = description;
+                this.CourseInstructor = instructor;
+            }
         }
 
         static void Main(string[] args)
         {
-            Student student1 = new Student("Gerardo", "Martinez", new DateTime(1984, 5, 7));
-            Console.WriteLine("The student: {0} {1} was born on {2}", student1.FirstName, student1.LastName, student1.BirthDate.ToString());
-            string[] FiveArray = new string[5];
-            for (int i = 0; i < FiveArray.Length; i++)
-            {
-                FiveArray[i] = "arrValue" + i;
-            }
-            int j = 0;
-            while (j < FiveArray.Length)
-            {
-                Console.WriteLine(FiveArray[j]);
-                j++;
-            }
-            string[] WeekArray = {Week.Monday.ToString()};
-            Console.WriteLine("Using WeekAyyray: {0}", WeekArray[0]);
-            Console.WriteLine("Using Week: {0}", Week.Monday);
-            Console.ReadLine();
+            Student[] StudentArray = new Student[5];
+            StudentArray[0] = new Student("Gerardo", "Martinez", new DateTime(1984, 5, 7));
+            Console.WriteLine("The information of the first student in the array is:");
+            Console.WriteLine("First Name: {0}", StudentArray[0].FirstName);
+            Console.WriteLine("Last Name: {0}", StudentArray[0].LastName);
+            Console.WriteLine("Birth Date: {0}", StudentArray[0].BirthDate.ToString("d"));
+            Console.ReadKey();
         }
     }
 }
